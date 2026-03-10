@@ -1,7 +1,161 @@
-skills,role,internship
-python,AI,Machine Learning Intern
-java,backend,Backend Developer Intern
-react,frontend,Frontend Developer Intern
-communication,pm,Product Management Intern
-sql,data,Data Analyst Intern
-figma,pm,Product Design Intern
+skills,role
+html css javascript react,Frontend Developer
+html css javascript,Frontend Developer
+html css react nextjs,Frontend Developer
+html css javascript bootstrap,Frontend Developer
+html css javascript tailwind,Frontend Developer
+react javascript css,Frontend Developer
+html css javascript react redux,Frontend Developer
+html css javascript angular,Frontend Developer
+html css javascript vue,Frontend Developer
+html css javascript ui-design,Frontend Developer
+javascript react redux frontend,Frontend Developer
+html css responsive-design,Frontend Developer
+html css javascript react typescript,Frontend Developer
+html css javascript nextjs,Frontend Developer
+html css javascript frontend testing,Frontend Developer
+react nextjs typescript css,Frontend Developer
+html css javascript material-ui,Frontend Developer
+html css javascript web-design,Frontend Developer
+html css javascript react tailwind,Frontend Developer
+html css javascript web-development,Frontend Developer
+java spring backend api,Backend Developer
+java spring boot backend,Backend Developer
+nodejs express backend api,Backend Developer
+nodejs express mongodb backend,Backend Developer
+java backend microservices,Backend Developer
+nodejs rest-api backend,Backend Developer
+python flask backend api,Backend Developer
+python django backend api,Backend Developer
+java spring rest-api backend,Backend Developer
+nodejs backend authentication,Backend Developer
+java spring security backend,Backend Developer
+nodejs express backend testing,Backend Developer
+python django rest-api backend,Backend Developer
+nodejs backend microservices,Backend Developer
+java backend database api,Backend Developer
+nodejs backend deployment docker,Backend Developer
+python flask backend database,Backend Developer
+java spring backend deployment,Backend Developer
+nodejs backend server-side,Backend Developer
+java spring boot microservices,Backend Developer
+python pandas numpy machine-learning,Machine Learning Engineer
+python machine-learning scikit-learn,Machine Learning Engineer
+python tensorflow deep-learning,Machine Learning Engineer
+python pytorch neural-networks,Machine Learning Engineer
+python pandas numpy ai,Machine Learning Engineer
+python machine-learning statistics,Machine Learning Engineer
+python scikit-learn data-modeling,Machine Learning Engineer
+python deep-learning ai-models,Machine Learning Engineer
+python machine-learning feature-engineering,Machine Learning Engineer
+python ai neural-networks,Machine Learning Engineer
+python ml regression classification,Machine Learning Engineer
+python ml clustering algorithms,Machine Learning Engineer
+python ai model-training,Machine Learning Engineer
+python ml data-processing,Machine Learning Engineer
+python ml predictive-modeling,Machine Learning Engineer
+python tensorflow cnn,Machine Learning Engineer
+python pytorch deep-learning models,Machine Learning Engineer
+python ml ai analytics,Machine Learning Engineer
+python neural-networks deep-learning,Machine Learning Engineer
+python ml pipelines,Machine Learning Engineer
+sql excel data-analysis statistics,Data Analyst
+sql data-analysis excel,Data Analyst
+sql python pandas data-analysis,Data Analyst
+excel statistics data-analysis,Data Analyst
+sql tableau data-visualization,Data Analyst
+sql powerbi data-analysis,Data Analyst
+sql python data-cleaning,Data Analyst
+excel pivot-tables analysis,Data Analyst
+sql reporting analytics,Data Analyst
+sql dashboard analytics,Data Analyst
+sql data-visualization tableau,Data Analyst
+excel statistics reporting,Data Analyst
+sql python visualization,Data Analyst
+sql excel dashboards,Data Analyst
+sql analytics statistics,Data Analyst
+sql data-mining analysis,Data Analyst
+excel data-cleaning analysis,Data Analyst
+sql business-analysis,Data Analyst
+sql python reporting analytics,Data Analyst
+excel analytics dashboards,Data Analyst
+figma ui ux design,Product Designer
+figma ui ux prototyping,Product Designer
+figma design systems,Product Designer
+ui ux wireframing figma,Product Designer
+figma product-design prototyping,Product Designer
+figma ui design thinking,Product Designer
+figma ux research design,Product Designer
+figma ui ux usability-testing,Product Designer
+figma mobile-design ui,Product Designer
+figma web-design ui ux,Product Designer
+figma user-experience design,Product Designer
+figma wireframe ui-design,Product Designer
+figma ux prototyping tools,Product Designer
+figma design systems ui,Product Designer
+figma interaction-design ux,Product Designer
+figma design-thinking product,Product Designer
+figma ui ux mockups,Product Designer
+figma usability testing ux,Product Designer
+figma mobile ux design,Product Designer
+figma interface-design ux,Product Designer
+communication analytics product-management,Product Manager
+product-management analytics strategy,Product Manager
+communication stakeholder-management product,Product Manager
+product-management roadmap planning,Product Manager
+product-management user-research analytics,Product Manager
+product-management agile scrum,Product Manager
+product-management feature-prioritization,Product Manager
+product-management business-strategy,Product Manager
+product-management product-analytics,Product Manager
+product-management roadmap strategy,Product Manager
+product-management customer-research,Product Manager
+product-management agile planning,Product Manager
+product-management metrics analytics,Product Manager
+product-management product-strategy,Product Manager
+product-management market-research,Product Manager
+product-management product-vision,Product Manager
+product-management user-feedback analytics,Product Manager
+product-management growth-strategy,Product Manager
+product-management stakeholder-communication,Product Manager
+product-management product-roadmap,Product Manager
+react nodejs mongodb fullstack,Full Stack Developer
+html css javascript nodejs,Full Stack Developer
+react nodejs express mongodb,Full Stack Developer
+javascript nodejs react api,Full Stack Developer
+html css javascript nodejs express,Full Stack Developer
+react nextjs nodejs mongodb,Full Stack Developer
+javascript fullstack nodejs react,Full Stack Developer
+react nodejs backend frontend,Full Stack Developer
+javascript react nodejs deployment,Full Stack Developer
+react nodejs api development,Full Stack Developer
+react nodejs database mongodb,Full Stack Developer
+javascript fullstack web-development,Full Stack Developer
+react nodejs fullstack testing,Full Stack Developer
+javascript nodejs express backend,Full Stack Developer
+react nodejs server-client,Full Stack Developer
+html css nodejs react backend,Full Stack Developer
+javascript react api integration,Full Stack Developer
+react nodejs microservices fullstack,Full Stack Developer
+react nodejs authentication fullstack,Full Stack Developer
+javascript react nodejs docker,Full Stack Developer
+python automation scripting,Automation Engineer
+python automation testing,Automation Engineer
+python selenium automation,Automation Engineer
+python automation pipelines,Automation Engineer
+python automation scripts devops,Automation Engineer
+python automation workflow,Automation Engineer
+python testing automation frameworks,Automation Engineer
+python automation ci-cd,Automation Engineer
+python automation monitoring,Automation Engineer
+python automation data-processing,Automation Engineer
+python automation scripting tools,Automation Engineer
+python selenium testing automation,Automation Engineer
+python automation deployment,Automation Engineer
+python automation devops scripts,Automation Engineer
+python automation tasks scripting,Automation Engineer
+python automation infrastructure,Automation Engineer
+python automation integration,Automation Engineer
+python automation build tools,Automation Engineer
+python automation testing pipelines,Automation Engineer
+python automation monitoring tools,Automation Engineer
