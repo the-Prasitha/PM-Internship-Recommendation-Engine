@@ -27,7 +27,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
-
 // Auth routes
 app.use("/auth", authRoutes);
 
