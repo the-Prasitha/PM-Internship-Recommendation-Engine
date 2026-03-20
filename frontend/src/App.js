@@ -1,54 +1,69 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+
+import Home from "./Home";
+import Login from "./Login";
+import Signup from "./Signup";
+import Dashboard from "./Dashboard";
 
 function App() {
 
-  const [skills, setSkills] = useState("");
-  const [result, setResult] = useState([]);
-
-  const getRecommendation = async () => {
-    try {
-
-      const response = await axios.post(
-        "http://localhost:3002/recommend",
-        { skills: skills }
-      );
-
-      setResult(response.data);
-
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const isLoggedIn = localStorage.getItem("token");
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
 
-      <h1>AI Internship Recommendation</h1>
+    <div className="min-h-screen bg-gray-100">
 
-      <input
-        type="text"
-        placeholder="Enter skills (example: html css javascript)"
-        value={skills}
-        onChange={(e) => setSkills(e.target.value)}
-      />
+      {/* Navbar */}
+      <nav className="bg-blue-600 text-white p-4 flex justify-between items-center">
 
-      <br /><br />
+        <h1 className="text-lg font-bold">
+          Internship Portal
+        </h1>
 
-      <button onClick={getRecommendation}>
-        Get Recommendation
-      </button>
+        <div>
 
-      <h2>Recommended Internships</h2>
+          <Link to="/" className="mr-4 hover:underline">
+            Home
+          </Link>
 
-      {result.map((job, index) => (
-        <p key={index}>
-          {job.title} — {job.company}
-        </p>
-      ))}
+          {!isLoggedIn ? (
+            <>
+              <Link to="/login" className="mr-4 hover:underline">
+                Login
+              </Link>
+
+              <Link to="/signup" className="hover:underline">
+                Signup
+              </Link>
+            </>
+          ) : (
+            <Link to="/dashboard" className="hover:underline">
+              Dashboard
+            </Link>
+          )}
+
+        </div>
+
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+
+        <Route path="/" element={<Home />} />
+
+        <Route path="/login" element={<Login />} />
+
+        <Route path="/signup" element={<Signup />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
+
+      </Routes>
 
     </div>
+
   );
+
 }
 
 export default App;
