@@ -1,35 +1,41 @@
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
+const mongoose = require("mongoose");
+
+const authRoutes = require("./routes/auth");
 
 const app = express();
 
-app.use(cors());
+/* -------------------- MIDDLEWARE -------------------- */
+
+// Allow frontend (Vercel) to connect
+app.use(cors({
+  origin: "*",   // later you can restrict to your Vercel URL
+}));
+
 app.use(express.json());
 
-app.post("/recommend", async (req, res) => {
+/* -------------------- DATABASE -------------------- */
 
-    try {
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected ✅"))
+  .catch(err => console.log("MongoDB Error:", err));
 
-        const skills = req.body.skills;
+/* -------------------- ROUTES -------------------- */
 
-        const response = await axios.post(
-            "http://127.0.0.1:5000/predict",
-            { skills: skills }
-        );
-
-        res.json(response.data);
-
-    } catch (error) {
-
-        res.status(500).json({
-            error: "AI prediction failed"
-        });
-
-    }
-
+// Test route (IMPORTANT for Render)
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
 });
 
-app.listen(3002, () => {
-    console.log("Backend running on port 3002");
+// Auth routes
+app.use("/auth", authRoutes);
+
+/* -------------------- SERVER -------------------- */
+
+// Render requires dynamic port
+const PORT = process.env.PORT || 3002;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
