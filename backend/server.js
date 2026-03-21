@@ -1,40 +1,35 @@
 const express = require("express");
-const cors = require("cors");
 const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
 
-app.use("/api/auth", authRoutes);
+const app = express(); // ✅ MUST be before using app
 
-const app = express();
+// 📌 Import routes
+const authRoutes = require("./routes/auth");
 
-/* -------------------- MIDDLEWARE -------------------- */
-
-// Allow frontend (Vercel) to connect
-app.use(cors({
-  origin: "*",   // later you can restrict to your Vercel URL
-}));
-
+// 📌 Middleware
+app.use(cors());
 app.use(express.json());
 
-/* -------------------- DATABASE -------------------- */
+// 📌 Routes
+app.use("/api/auth", authRoutes);
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected ✅"))
-  .catch(err => console.log("MongoDB Error:", err));
-
-/* -------------------- ROUTES -------------------- */
-
-// Test route (IMPORTANT for Render)
+// 📌 Test route
 app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
+  res.send("API is running successfully 🚀");
 });
-// Auth routes
-app.use("/auth", authRoutes);
 
-/* -------------------- SERVER -------------------- */
+// 📌 MongoDB Connection
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected ✅"))
+  .catch((err) => console.log("MongoDB Error ❌", err));
 
-// Render requires dynamic port
-const PORT = process.env.PORT || 3002;
+// 📌 Port
+const PORT = process.env.PORT || 5000;
 
+// 📌 Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
