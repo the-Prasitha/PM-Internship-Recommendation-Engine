@@ -1,46 +1,39 @@
 import pandas as pd
 
-# Load dataset
 df = pd.read_csv("../dataset/real_internships.csv")
 
-print("Dataset loaded")
-print(df.head())
+def generate_skills(title):
 
-def extract_skills(title):
+    title = title.lower()
 
-    title = str(title).lower()
+    if "writer" in title:
+        return "content writing blogging seo copywriting"
 
-    if "frontend" in title or "react" in title:
+    if "ios" in title:
+        return "swift ios mobile development"
+
+    if "frontend" in title:
         return "html css javascript react"
 
-    elif "backend" in title:
-        return "nodejs api backend"
+    if "backend" in title:
+        return "nodejs api database"
 
-    elif "ai" in title or "ml" in title:
-        return "python machine learning"
+    if "data" in title:
+        return "python data analysis pandas"
 
-    elif "data" in title:
-        return "python pandas data analysis"
+    if "ai" in title:
+        return "python machine learning ai"
 
-    elif "designer" in title:
-        return "figma ui ux"
+    if "crypto" in title:
+        return "blockchain crypto trading"
 
-    elif "writer" in title:
-        return "content writing seo"
+    if "marketing" in title:
+        return "marketing seo social media"
 
-    elif "devops" in title:
-        return "docker kubernetes ci cd"
+    return "general skills"
 
-    else:
-        return "software development"
+df["skills"] = df["title"].apply(generate_skills)
 
-# Update skills column
-df["skills"] = df["title"].apply(extract_skills)
-
-print("Updated dataset:")
-print(df.head())
-
-# Save dataset
 df.to_csv("../dataset/real_internships.csv", index=False)
 
-print("Dataset updated and saved!")
+print("Dataset updated!")

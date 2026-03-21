@@ -1,74 +1,51 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
-import joblib
 
 app = Flask(__name__)
+CORS(app)
 
-# Load ML model
-model = joblib.load("internship_model.pkl")
-
-# Load dataset
-data = pd.read_csv("../dataset/real_internships.csv")
-
-
-# Map predicted roles to dataset roles
-def map_role(predicted_role):
-
-    predicted_role = predicted_role.lower()
-
-    if "frontend" in predicted_role:
-        return "Software Development"
-
-    if "full stack" in predicted_role:
-        return "Software Development"
-
-    if "backend" in predicted_role:
-        return "Software Development"
-
-    if "machine learning" in predicted_role:
-        return "AI / ML"
-
-    if "ai" in predicted_role:
-        return "AI / ML"
-
-    if "data" in predicted_role:
-        return "AI / ML"
-
-    if "design" in predicted_role:
-        return "Design"
-
-    return "Software Development"
-
+# load dataset
+data = pd.read_csv("../dataset/internship_dataset.csv")
 
 @app.route("/predict", methods=["POST"])
 def predict():
 
-    skills = request.json["skills"]
+    skills = request.json.get("skills", "")
+    user_skills = skills.lower().split()
 
-    # Predict role using ML model
-    predicted_role = model.predict([skills])[0]
+    df = data.copy()
 
-    print("Predicted Role:", predicted_role)
+    scores = []
 
-    # Map to dataset category
-    mapped_role = map_role(predicted_role)
+    for _, row in df.iterrows():
 
-    print("Mapped Role:", mapped_role)
+        job_text = (
+            str(row.get("title", "")) + " " +
+            str(row.get("skills", ""))
+        ).lower()
 
-    # Filter dataset
-    matches = data[data["role"].str.contains(mapped_role, case=False, na=False)]
+        score = sum(skill in job_text for skill in user_skills)
 
-    # fallback if nothing found
-    if matches.empty:
-        matches = data.sample(5)
+        scores.append(score)
+
+    df["score"] = scores
+
+    df = df[df["score"] > 0]
+
+    if df.empty:
+        df = data.sample(min(5, len(data)))
+    else:
+        df = df.sort_values(by="score", ascending=False).head(5)
 
     results = []
 
-    for _, row in matches.head(5).iterrows():
+    for _, row in df.iterrows():
 
         results.append({
             "title": row["title"],
-            "company": row["company"]
+            "company": row["company"],
+            "link": row.get("link", "#")
         })
 
     return jsonify(results)
