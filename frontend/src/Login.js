@@ -23,7 +23,7 @@ function Login() {
     try {
 
       const res = await axios.post(
-        "http://localhost:3002/auth/login",
+        "https://pm-internship-recommendation-engine-u29k.onrender.com/api/auth/login",
         { email, password }
       );
 

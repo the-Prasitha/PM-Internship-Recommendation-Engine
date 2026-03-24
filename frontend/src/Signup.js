@@ -30,7 +30,7 @@ function Signup() {
 
     try {
 
-      await axios.post("http://localhost:3002/auth/signup", {
+      await axios.post("https://pm-internship-recommendation-engine-u29k.onrender.com/api/auth/login", {
         name,
         email,
         password
